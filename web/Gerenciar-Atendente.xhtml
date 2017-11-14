@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"      
+             template="template.xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form>
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="Adicionar"  action="#{AtendenteBean.adicionar()}"  update="@form"></p:commandButton>
+                    </p:toolbarGroup>
+                </p:toolbar>         
+                
+    
+                <p:fieldset legend="Objetos">
+                 <p:panelGrid columns="2">
+                     
+                <h:outputLabel value="idAtendente"></h:outputLabel>
+                <p:inputText id="idAtendente" value="#{atendenteBean.atendente.idAtendente}"></p:inputText>
+
+                <h:outputLabel value="senha"></h:outputLabel>
+                <p:inputText value="#{atendenteBean.atendente.senha}"></p:inputText>
+
+                <h:outputLabel value="nome"></h:outputLabel>
+                <p:inputText value="#{atendenteBean.atendente.nome}"></p:inputText>
+
+                <h:outputLabel value="DataCadastro"></h:outputLabel>
+                <p:inputText value="#{atendenteBean.atendente.dataCadastro}"></p:inputText>
+                
+                <h:outputLabel value="cargo"></h:outputLabel>
+                <p:inputText value="#{atendenteBean.atendente.cargo}"></p:inputText>
+                
+                <h:outputLabel value="descricao"></h:outputLabel>
+                <p:inputText value="#{atendenteBean.atendente.descricao}"></p:inputText>
+                </p:panelGrid>
+                    
+                    
+                 <p:dataTable value="#{atendenteBean.atendentes}" var="atendente">
+                     
+                <p:column headerText="idAtendente">
+                    <h:outputText value="#{atendente.idAtendente}"></h:outputText>
+                </p:column>
+
+                <p:column headerText="senha">
+                    <h:outputText value="#{atendente.senha}"></h:outputText>
+                </p:column>
+
+                <p:column headerText="nome">
+                    <h:outputText value="#{atendente.nome}"></h:outputText>
+                </p:column>
+                     
+                 <p:column headerText="dataCadastro">
+                     <h:outputText value="#{atendente.dataCadastro}"></h:outputText>
+                </p:column>
+
+                <p:column headerText="cargo">
+                    <h:outputText value="#{atendente.cargo}"></h:outputText>
+                </p:column>
+                <p:column headerText="descricao">
+                    <h:outputText value="#{atendente.descricao}"></h:outputText>
+                </p:column>  
+    
+           </p:dataTable>
+        </p:fieldset>
+    </h:form>
+</ui:decorate>
+
