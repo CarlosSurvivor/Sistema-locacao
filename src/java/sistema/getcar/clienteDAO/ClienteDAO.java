@@ -7,7 +7,10 @@ package sistema.getcar.clienteDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sistema.getcar.entidade.cliente.Cliente;
@@ -33,7 +36,22 @@ public class ClienteDAO {
             FabricaConexao.fecharConexao();            
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }    
             }
-    
+    public List<Cliente> buscar(){
+        try{
+            Connection conexao = FabricaConexao.getConexao();
+            PreparedStatement ps = conexao.prepareCall("select * from cliente");
+            ResultSet resultSet = ps.executeQuery();
+            List<Cliente> clientes = new ArrayList<>();
+            while(resultSet.next()){
+                Cliente cliente = new Cliente();
+            }                
+            
+        }catch (SQLException ex) {
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        return null;
 }
+        
 }

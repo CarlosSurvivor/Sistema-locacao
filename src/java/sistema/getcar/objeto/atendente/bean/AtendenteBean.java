@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import sistema.getcar.atendente.DAO.AtendenteDAO;
 import sistema.getcar.entidade.atendente.Atendente;
 
 /**
@@ -24,6 +25,7 @@ public class AtendenteBean {
     
     public void adicionar(){
         atendentes.add(atendente);
+        new AtendenteDAO().salvar(atendente);
         atendente = new Atendente();
     }
 

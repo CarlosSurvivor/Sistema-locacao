@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import sistema.getcar.clienteDAO.ClienteDAO;
 import sistema.getcar.entidade.cliente.Cliente;
 
 /**
@@ -25,6 +26,7 @@ public class ClienteBean {
     
     public void adicionar(){
         clientes.add(cliente);
+        new ClienteDAO().salvar(cliente);
         cliente = new Cliente();
     }
 
@@ -42,9 +44,5 @@ public class ClienteBean {
 
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
-    }
-    
-    
-    
-    
+    }    
 }

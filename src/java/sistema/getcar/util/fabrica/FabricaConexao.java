@@ -37,17 +37,14 @@ public class FabricaConexao {
      return conexao;
      }
 
-    public static void  fecharConexao(){
-        
-    if(conexao !=null){
-    try{
-        conexao.close();
-        conexao = null;
-        
-    }catch(SQLException ex){
+    public static void  fecharConexao(){   
+        if(conexao !=null){
+        try{
+            conexao.close();
+            conexao = null;
+        }catch(SQLException ex){
         Logger.getLogger(FabricaConexao.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
+        }        
     }
     }
 }
